@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -15,7 +16,7 @@ import static org.hamcrest.CoreMatchers.*;
 public class AddressBookTest {
 
 
-    private static final AddressEntry MIRKA_NOVAKOVA = new AddressEntry("Mirka Novakova", Gender.FEMALE, LocalDate.of(1980, 10, 25));
+    private static final AddressEntry MIRKA_NOVAKOVA = new AddressEntry("Mirka Novakova", Gender.FEMALE, LocalDate.of(1984, 10, 15));
 
     private static final List<AddressEntry> sampleList = Arrays.asList(
             new AddressEntry("Pepa Novak", Gender.MALE, LocalDate.of(1984, 10, 25)),
@@ -40,6 +41,16 @@ public class AddressBookTest {
 
     }
 
+
+    @Test
+    public void calculateDayDifferenceTest() {
+        AddressBook b = new AddressBook(sampleList);
+
+        Optional<Long> difference = b.calculateDayDifference("Mirka Novakova", "Pepa Novak");
+
+        assertThat(difference, equalTo(Optional.of(10l)));
+
+    }
 
 
 }
