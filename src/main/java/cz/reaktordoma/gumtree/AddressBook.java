@@ -1,6 +1,7 @@
 package cz.reaktordoma.gumtree;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -16,6 +17,10 @@ public class AddressBook {
 
     public long howManyMales() {
         return book.stream().filter(x -> x.getGender() == Gender.MALE).count();
+    }
+
+    public AddressEntry getOldestPerson() {
+        return book.stream().min(Comparator.comparing(AddressEntry::getBirthdate)).get();
     }
 
 
