@@ -14,7 +14,9 @@ public class AddressBook {
         this.book = Collections.unmodifiableList(book);
     }
 
-    
+    public long howManyMales() {
+        return book.stream().filter(x -> x.getGender() == Gender.MALE).count();
+    }
 
 
 }
