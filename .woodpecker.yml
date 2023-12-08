@@ -1,0 +1,9 @@
+skip_clone: true
+
+steps:
+  git-checkout:
+    image: bitnami/git
+    commands:
+      - git clone --depth 1 https://github.com/evolvedbinary/rocksdb.git
+      - echo '****** Cloned!****'
+      - pwd
