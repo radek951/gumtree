@@ -1,6 +1,6 @@
 steps:
-  git-checkout:
-    image: manven:eclipse-temurin-8-alpine
+  build:
+    image: manven
     commands:      
       - echo '****** Cloned!****'
       - pwd
