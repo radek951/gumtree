@@ -1,6 +1,6 @@
 steps:
   build:
-    image: maven:eclipse-temurin-8
+    image: maven
     commands:      
       - echo '****** Cloned!****'
       - pwd
